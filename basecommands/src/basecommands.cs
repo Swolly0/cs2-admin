@@ -101,6 +101,17 @@ public class BaseCommands : BasePlugin, IPluginConfig<Config>
         ExecuteMapCommand(player, arg, $"changelevel {arg}", false);
     }
 
+    [ConsoleCommand("css_maps")]
+    [RequiresPermissions("@css/changemap")]
+    public void Command_Maps(CCSPlayerController? player, CommandInfo info)
+    {
+        foreach (var map in Config.WorkshopMapName.Keys)
+        {
+            player?.PrintToChat($" \x04{map.Trim()}");
+            Console.WriteLine(map.Trim()); 
+        }
+    }
+
     [ConsoleCommand("css_wsmap")]
     [ConsoleCommand("css_workshop")]
     [RequiresPermissions("@css/changemap")]
